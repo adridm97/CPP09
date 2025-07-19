@@ -6,7 +6,7 @@
 /*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 17:02:37 by adrian            #+#    #+#             */
-/*   Updated: 2025/02/25 17:31:45 by adrian           ###   ########.fr       */
+/*   Updated: 2025/07/19 16:07:52 by aduenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <sys/time.h>
+#include <algorithm>
 
 class PmergeMe
 {

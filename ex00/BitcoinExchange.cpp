@@ -6,7 +6,7 @@
 /*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:33:26 by adrian            #+#    #+#             */
-/*   Updated: 2025/02/24 18:35:00 by adrian           ###   ########.fr       */
+/*   Updated: 2025/07/19 15:52:21 by aduenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 BitcoinExchange::BitcoinExchange() {}
 BitcoinExchange::BitcoinExchange(const std::string &csvFile)
 {
-    std::ifstream file(csvFile);
+    std::ifstream file(csvFile.c_str());
     if (!file)
     {
         std::cerr << "Error: could not open database file." << std::endl;
@@ -64,7 +64,7 @@ bool BitcoinExchange::isValidValue(const std::string &value)
 }
 void BitcoinExchange::processInputFile(const std::string &inputFile)
 {
-    std::ifstream file(inputFile);
+    std::ifstream file(inputFile.c_str());
     if (!file)
     {   
         std::cerr << "Error: could not open file" << std::endl;
