@@ -6,7 +6,7 @@
 /*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 17:02:37 by adrian            #+#    #+#             */
-/*   Updated: 2025/07/19 16:07:52 by aduenas-         ###   ########.fr       */
+/*   Updated: 2025/07/23 16:39:31 by adrian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,38 @@
 #include <iostream>
 #include <vector>
 #include <deque>
-#include <sstream>
+#include <string>
 #include <cstdlib>
-#include <ctime>
+#include <climits>
 #include <sys/time.h>
-#include <algorithm>
 
 class PmergeMe
 {
-    private:
-        std::vector<int> vectorData;
-        std::deque<int> dequeData;
-    public:
-        PmergeMe();
-        PmergeMe(const PmergeMe &other);
-        PmergeMe &operator=(const PmergeMe &other);
-        ~PmergeMe();
-        void loadData(int argc, char **argv);
-        void sortVector();
-        void sortDeque();
-        double getCurrentTime();
-        void printResult(double vectorTime, double dequeTime);
+public:
+    PmergeMe();
+    PmergeMe(const PmergeMe &other);
+    PmergeMe &operator=(const PmergeMe &other);
+    ~PmergeMe();
+    void loadData(int argc, char **argv);
+    void printBefore() const;
+    void printAfter() const;
+    void sortVector();
+    void sortDeque();
+    void printTimes(double vTime, double dTime) const;
+    double getCurrentTime() const;
+    const std::vector<int>& getVectorSorted() const;
+    const std::deque<int>& getDequeSorted() const;
+    
+private:
+    std::vector<int> vectorData;
+    std::vector<int> vectorSorted;
+    std::deque<int> dequeData;
+    std::deque<int> dequeSorted;
+
+    // Ford-Johnson:
+    void fordJohnsonSortVector(std::vector<int> &v);
+    void fordJohnsonSortDeque(std::deque<int> &d);
+
+    size_t jacobsthal(size_t n) const;
+
 };
